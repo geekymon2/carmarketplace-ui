@@ -1,0 +1,42 @@
+<div class="text-center text-white">
+  <h1 class="mb-5">Search for cars</h1>
+  <form class="form-search" id="search">
+    <!-- Email address input-->
+    <div class="row bg-secondary p-3">
+      <div class="input-group p-3">
+        <input
+          class="form-control form-control-md m-1"
+          id="make"
+          type="text"
+          placeholder="Make"
+          data-sb-validations="required"
+        />
+        <input
+          class="form-control form-control-md m-1"
+          id="model"
+          type="text"
+          placeholder="Model"
+          data-sb-validations=""
+        />
+        <input
+          class="form-control form-control-md m-1"
+          id="bodytype"
+          type="text"
+          placeholder="Body Type"
+        />
+        <div class="col-auto">
+          <button
+            class="btn btn-primary btn-lg"
+            id="submitButton"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="d-none" id="submitErrorMessage">
+      <div class="text-center text-danger mb-3">Error sending message!</div>
+    </div>
+  </form>
+</div>
