@@ -84,12 +84,11 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/scss/bootstrap.scss",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css",              
-              "src/styles.css"
+              "src/styles.css",
+              "bootswatch/dist/superhero/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "bootstrap/dist/js/bootstrap.min.js"
             ]
           }
         }
