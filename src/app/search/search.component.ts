@@ -13,22 +13,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './search.component.css',
 })
 export class SearchComponent implements OnInit {
-  data: any;
   make$!: Observable<Make[]>;
   selectedMakeId = '1';
-  simpleItems = [];
 
   constructor(private dataService: CarInfoDataService) {}
 
   ngOnInit() {
-    this.make$ = this.dataService.getMakes();    
-    //this.make$ = Observable['option 1','option 2','option 3','option 4'];
-
-    this.dataService.getMakes().subscribe((response) => {
-      this.data = response;
-      //this.make$ = this.data;
-      console.log(this.data);
-    });
+    this.make$ = this.dataService.getMakes();
   }
-
 }
