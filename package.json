@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:ci": "ng serve --configuration=ci",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -19,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0-rc.2",
+    "@ng-select/ng-select": "^12.0.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "bootswatch": "^5.3.3",
