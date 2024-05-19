@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CarInfoDataService, Make } from '../../data/data.carinfo.service';
+import {
+  CarInfoDataService,
+  Make,
+  Model,
+} from '../../data/data.carinfo.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { Observable } from 'rxjs';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,11 +18,22 @@ import { CommonModule } from '@angular/common';
 })
 export class SearchComponent implements OnInit {
   make$!: Observable<Make[]>;
+  models$!: Observable<Model[]>;
   selectedMakeId = '1';
+  selectedModelId = '1';
 
-  constructor(private dataService: CarInfoDataService) {}
+  constructor(private carInfoService: CarInfoDataService) {}
 
   ngOnInit() {
-    this.make$ = this.dataService.getMakes();
+    this.fetchCarMakes();
+    this.fetchCarModels();
+  }
+
+  fetchCarMakes() {
+    this.make$ = this.carInfoService.getMakes();
+  }
+
+  fetchCarModels() {
+    this.models$ = this.carInfoService.getModels('FORD');
   }
 }

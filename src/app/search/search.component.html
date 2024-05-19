@@ -1,7 +1,6 @@
 <div class="text-center text-white">
   <h1 class="mb-5">Search for cars</h1>
   <form class="form-search" id="search">
-    <!-- Email address input-->
     <div class="row bg-secondary p-3">
       <div class="input-group p-3">
         <ng-select
@@ -13,13 +12,15 @@
           [(ngModel)]="selectedMakeId"
           [ngModelOptions]="{ standalone: true }"
         ></ng-select>
-        <input
+        <ng-select
+          appendTo="body"
           class="form-control form-control-md m-1"
-          id="model"
-          type="text"
-          placeholder="Model"
-          data-sb-validations=""
-        />
+          [items]="models$ | async"
+          bindLabel="name"
+          bindValue="id"
+          [(ngModel)]="selectedMakeId"
+          [ngModelOptions]="{ standalone: true }"
+        ></ng-select>        
         <input
           class="form-control form-control-md m-1"
           id="bodytype"
