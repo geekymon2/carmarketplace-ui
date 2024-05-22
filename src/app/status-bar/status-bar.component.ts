@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ErrorMessageService } from '../errormessage.service';
+import { ErrorMessageService } from '../common/errormessage.service';
 
 @Component({
   selector: 'app-status-bar',
