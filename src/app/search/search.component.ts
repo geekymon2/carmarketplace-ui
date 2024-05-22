@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  BodyType,
   CarInfoDataService,
   Make,
   Model,
@@ -19,21 +20,39 @@ import { CommonModule } from '@angular/common';
 export class SearchComponent implements OnInit {
   make$!: Observable<Make[]>;
   models$!: Observable<Model[]>;
-  selectedMakeId = '1';
-  selectedModelId = '1';
+  bodytypes$!: Observable<BodyType[]>;
+  selectedMake = '';
+  selectedModel = '';
+  selectedBodyType = '';
 
   constructor(private carInfoService: CarInfoDataService) {}
 
   ngOnInit() {
     this.fetchCarMakes();
-    this.fetchCarModels();
+    this.fetchBodyTypes();
   }
 
   fetchCarMakes() {
     this.make$ = this.carInfoService.getMakes();
   }
 
-  fetchCarModels() {
-    this.models$ = this.carInfoService.getModels('FORD');
+  fetchBodyTypes() {
+    this.bodytypes$ = this.carInfoService.getBodyTypes();
+  }
+
+  fetchCarModels(make: string, type: string) {
+    if (make.length > 1) {
+      this.models$ = this.carInfoService.getModels(make, type);
+    }
+  }
+
+  selectMake(selection: string) {
+    this.selectedMake = selection;
+    this.fetchCarModels(this.selectedMake, this.selectedBodyType);
+  }
+
+  selectBodyType(selection: string) {
+    this.selectedBodyType = selection;    
+    this.fetchCarModels(this.selectedMake, this.selectedBodyType);
   }
 }

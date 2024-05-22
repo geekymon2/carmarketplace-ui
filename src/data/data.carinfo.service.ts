@@ -13,7 +13,11 @@ export interface Make {
 export interface Model {
   id: string;
   name: string;
-  country: string;
+}
+
+export interface BodyType {
+  id: string;
+  name: string;
 }
 
 const baseUrl = environment.baseUrl + ApiBasePaths.CAR_INFO_SERVICE;
@@ -22,15 +26,20 @@ const baseUrl = environment.baseUrl + ApiBasePaths.CAR_INFO_SERVICE;
   providedIn: 'root',
 })
 export class CarInfoDataService {
-
   constructor(private http: HttpClient) {}
 
   getMakes(): Observable<any> {
     return this.http.get<any>(baseUrl + '/car/makes');
   }
 
-  getModels(make: any): Observable<any> {
-    const params = new HttpParams({ fromString: 'make=' + make + '&type=SUV' });
+  getBodyTypes(): Observable<any> {
+    return this.http.get<any>(baseUrl + '/car/types');
+  }  
+
+  getModels(make: string, type: string): Observable<any> {
+    const params = new HttpParams({
+      fromString: 'make=' + make + '&type=' + type,
+    });
     return this.http.get<any>(baseUrl + '/car/models', { params });
   }
 }

@@ -4,29 +4,35 @@
     <div class="row bg-secondary p-3">
       <div class="input-group p-3">
         <ng-select
+          (change)="selectMake(selectedMake)"
           appendTo="body"
           class="form-control form-control-md m-1"
           [items]="make$ | async"
           bindLabel="name"
-          bindValue="id"
-          [(ngModel)]="selectedMakeId"
+          bindValue="name"
+          [(ngModel)]="selectedMake"
           [ngModelOptions]="{ standalone: true }"
         ></ng-select>
+        <ng-select
+          (change)="selectBodyType(selectedBodyType)"
+          appendTo="body"
+          class="form-control form-control-md m-1"
+          [items]="bodytypes$ | async"
+          bindLabel="name"
+          bindValue="name"
+          [(ngModel)]="selectedBodyType"
+          [ngModelOptions]="{ standalone: true }"
+        ></ng-select>
+
         <ng-select
           appendTo="body"
           class="form-control form-control-md m-1"
           [items]="models$ | async"
           bindLabel="name"
-          bindValue="id"
-          [(ngModel)]="selectedMakeId"
+          bindValue="name"
+          [(ngModel)]="selectedModel"
           [ngModelOptions]="{ standalone: true }"
-        ></ng-select>        
-        <input
-          class="form-control form-control-md m-1"
-          id="bodytype"
-          type="text"
-          placeholder="Body Type"
-        />
+        ></ng-select>
         <div class="col-auto">
           <button
             class="btn btn-primary btn-lg"
