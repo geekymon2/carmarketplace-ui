@@ -4,12 +4,14 @@ import { StatusMessageService } from './statusmessage.service';
 import { inject } from '@angular/core';
 
 export const httperrorInterceptor: HttpInterceptorFn = (req, next) => {
-  const status = inject(StatusMessageService);
+  const message = inject(StatusMessageService);
   console.debug('Http request has been intercepted.');
   return next(req).pipe(
     catchError((err) => {
       if (err instanceof HttpErrorResponse) {
-        status.setStatusMessage('Server Error');
+        if (err.status == 0) {
+          message.setStatusMessage('Unable to connect to server');
+        }
       }
       return of(err);
     })

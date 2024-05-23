@@ -1,12 +1,39 @@
-<footer class="py-1 mt-auto fixed-bottom">
+<footer class="fixed-bottom status">
   <div class="container">
-    <div class="row status">
-      <div class="col-md-7">
-        <p class="mb-0">© Car Marketplace 2024. All Rights Reserved.</p>
+    <div class="d-flex">
+      <div class="d-inline-block">
+        <p>© Car Marketplace 2024. All Rights Reserved.</p>
       </div>
-      <div class="col-md-2 text-center">
-        <p class="mb-0">
-          <span class="text-failure">{{ message.message }}</span>
+      <div class="d-inline-block">
+        <p></p>
+      </div>
+      <div class="d-inline-block">
+        <ul>
+          <li class="list-inline-item"><a href="#!">About</a></li>
+          <li class="list-inline-item">⋅</li>
+          <li class="list-inline-item"><a href="#!">Contact</a></li>
+          <li class="list-inline-item">⋅</li>
+          <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+          <li class="list-inline-item">⋅</li>
+          <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="d-inline-block">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#!"><i class="bi-facebook fs-3"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!"><i class="bi-twitter fs-3"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!"><i class="bi-instagram fs-3"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="d-inline-block">
+        <p>
+          <span>{{ message.message }}</span>
         </p>
       </div>
     </div>
