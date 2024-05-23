@@ -1,15 +1,15 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
-import { ErrorMessageService } from './errormessage.service';
+import { StatusMessageService } from './statusmessage.service';
 import { inject } from '@angular/core';
 
 export const httperrorInterceptor: HttpInterceptorFn = (req, next) => {
-  const errorService = inject(ErrorMessageService);
-  console.debug('Http intercepted');
+  const status = inject(StatusMessageService);
+  console.debug('Http request has been intercepted.');
   return next(req).pipe(
     catchError((err) => {
       if (err instanceof HttpErrorResponse) {
-        errorService.displayError('Server Error');
+        status.setStatusMessage('Server Error');
       }
       return of(err);
     })

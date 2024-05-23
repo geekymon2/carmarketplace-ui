@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ErrorMessageService } from '../common/errormessage.service';
+import { StatusMessageService } from '../common/statusmessage.service';
 
 @Component({
   selector: 'app-status-bar',
@@ -9,6 +9,5 @@ import { ErrorMessageService } from '../common/errormessage.service';
   styleUrl: './status-bar.component.css',
 })
 export class StatusBarComponent {
-  message: string = '';
-  constructor(public errorMessage: ErrorMessageService) {}
+  constructor(public message: StatusMessageService) {}
 }
