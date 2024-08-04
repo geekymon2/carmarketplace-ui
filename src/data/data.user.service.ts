@@ -1,24 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.development';
 import { ApiBasePaths } from '../apis/apipaths';
 import { Observable } from 'rxjs/internal/Observable';
-
-export interface Make {
-  id: string;
-  name: string;
-  country: string;
-}
-
-export interface Model {
-  id: string;
-  name: string;
-}
-
-export interface BodyType {
-  id: string;
-  name: string;
-}
+import { catchError } from 'rxjs/operators';
 
 const baseUrl = environment.baseUrl + ApiBasePaths.USER_SERVICE;
 
@@ -28,7 +13,24 @@ const baseUrl = environment.baseUrl + ApiBasePaths.USER_SERVICE;
 export class UserDataService {
   constructor(private http: HttpClient) {}
 
-  registerUser(): Observable<any> {
-    return this.http.get<any>(baseUrl + '/register');
+  registerUser(body: any): Observable<any> {
+    console.log('Called registerUser');
+
+    let res: any = null;
+
+    try {
+      res = this.http.get<any>('http://wrong/register').pipe(
+        catchError((err) => {
+          console.log('There is an error');
+          console.log(err);
+          return err;
+        })
+      );
+
+      res.subscribe((data: any) => console.log(data));
+    } catch (err) {
+      console.log(err);
+    }
+    return res;
   }
 }

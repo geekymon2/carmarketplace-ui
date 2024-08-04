@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../../data/data.user.service';
 import {
   AbstractControl,
   FormBuilder,
@@ -10,6 +11,7 @@ import {
 } from '@angular/forms';
 import Validation from '../common/validation';
 import { NgClass, NgIf } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -27,8 +29,9 @@ export class SignupComponent implements OnInit {
     confirmPassword: new FormControl(''),
   });
   submitted = false;
+  res$!: Observable<any>;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userDataService: UserDataService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group(
@@ -58,13 +61,11 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    console.log('Form Submitted');
-
     if (this.form.invalid) {
       return;
     }
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    this.res$ = this.userDataService.registerUser(this.form.value);
   }
 
   onReset(): void {
