@@ -14,18 +14,9 @@ export class UserDataService {
   constructor(private http: HttpClient) {}
 
   registerUser(body: any): Observable<any> {
-    console.log('Called registerUser');
-
     let res: any = null;
-
     try {
-      res = this.http.get<any>('http://wrong/register').pipe(
-        catchError((err) => {
-          console.log('There is an error');
-          console.log(err);
-          return err;
-        })
-      );
+      res = this.http.post<any>(baseUrl + '/register', body);
 
       res.subscribe((data: any) => console.log(data));
     } catch (err) {
