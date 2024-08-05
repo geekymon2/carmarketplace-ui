@@ -34,12 +34,12 @@ export class CarInfoDataService {
 
   getBodyTypes(): Observable<any> {
     return this.http.get<any>(baseUrl + '/car/types');
-  }  
+  }
 
   getModels(make: string, type: string): Observable<any> {
-    const params = new HttpParams({
-      fromString: 'make=' + make + '&type=' + type,
-    });
+    let params = new HttpParams();
+    params = params.append('make', make);
+    params = params.append('type', type);
     return this.http.get<any>(baseUrl + '/car/models', { params });
   }
 }

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../environments/environment.development';
 import { ApiBasePaths } from '../apis/apipaths';
 import { Observable } from 'rxjs/internal/Observable';
-import { catchError } from 'rxjs/operators';
 
 const baseUrl = environment.baseUrl + ApiBasePaths.USER_SERVICE;
 
@@ -13,10 +12,22 @@ const baseUrl = environment.baseUrl + ApiBasePaths.USER_SERVICE;
 export class UserDataService {
   constructor(private http: HttpClient) {}
 
-  registerUser(body: any): Observable<any> {
+  registerUser(data: any): Observable<any> {
     let res: any = null;
     try {
-      res = this.http.post<any>(baseUrl + '/register', body);
+      let params = new HttpParams();
+      params = params.append('firstname', data.firstName);
+      params = params.append('lastname', data.lastName);
+      params = params.append('email', data.email);
+      params = params.append('password', data.password);
+
+      res = this.http.post<any>(
+        baseUrl + '/user/register',
+        { body: '' },
+        {
+          params: params,
+        }
+      );
 
       res.subscribe((data: any) => console.log(data));
     } catch (err) {
