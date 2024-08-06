@@ -16,14 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
-      - name: checkout repo
-        uses: actions/checkout@v4
-      - name: list files
+      - name: list folders
+        run: echo "PWD:" && pwd && "WORKSPACE:" && echo ${{ github.workspace }}
+      - name: list all files
         run: ls -la
-      - name: current dir
-        run: pwd
-      - name: current dir
-        run: echo ${{ github.workspace }}
       - name: read docker properties
         uses: madhead/read-java-properties@latest
         id: docker
@@ -38,7 +34,7 @@ jobs:
       - name: push docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./service
+          context: .
           push: true
           tags: |
             geekymon2/${{ steps.docker.outputs.IMAGE_NAME }}:${{ steps.docker.outputs.MAJOR_VERSION }}.${{ steps.docker.outputs.MINOR_VERSION }}.${{ steps.buildnumber.outputs.build_number }}
