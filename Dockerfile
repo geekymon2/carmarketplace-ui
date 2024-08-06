@@ -9,4 +9,4 @@ RUN npm install
 RUN printf "IMAGE_VERSION=${IMAGE_VERSION}" > version.properties 
 COPY entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["/bin/bash", "./entrypoint.sh"]
+ENTRYPOINT ["sh", "./entrypoint.sh"]
