@@ -24,7 +24,7 @@ jobs:
         uses: madhead/read-java-properties@latest
         id: docker
         with:
-          file: ${{ GITHUB_WORKSPACE }}/docker.properties
+          file: ${{ github.workspace }}/docker.properties
           all: true
       - name: dockerhub login
         uses: docker/login-action@v3
