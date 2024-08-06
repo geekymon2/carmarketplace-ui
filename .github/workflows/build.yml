@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "20.x"
       - name: list folders
-        run: echo "PWD:" && pwd && "WORKSPACE:" && echo ${{ github.workspace }}
+        run: echo "PWD:" && pwd && echo "WORKSPACE:" && echo ${{ github.workspace }}
       - name: list all files
         run: ls -la
       - name: read docker properties
