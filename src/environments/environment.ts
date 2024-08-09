@@ -1,4 +1,4 @@
 export const environment = {
-    production: true,
-    baseUrl: 'https://carmarketplace.com/api'
+  production: false,
+  baseUrl: 'http://minikube:30000/api',
 };
