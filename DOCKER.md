@@ -21,4 +21,4 @@
 ### Run container
 
 - docker run geekymon2/cm-ui
-- docker run -e ARTIFACT_NAME=cm-ui -e NG_APP_ENVIRONMENT=ci geekymon2/cm-ui
+- docker run -e ARTIFACT_NAME=cm-ui -e ENVIRONMENT=ci geekymon2/cm-ui
