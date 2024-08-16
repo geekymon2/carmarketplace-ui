@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import { ApiBasePaths } from '../apis/apipaths';
 import { Observable } from 'rxjs/internal/Observable';
-
-const baseUrl = environment.baseUrl + ApiBasePaths.USER_SERVICE;
+import { ConfigLoaderService } from '../config/configloader.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
-  constructor(private http: HttpClient) {}
+  private baseUrl =
+    this.configService.getConfig()?.baseUrl + ApiBasePaths.USER_SERVICE;
+
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigLoaderService
+  ) {}
 
   registerUser(data: any): Observable<any> {
     let res: any = null;
@@ -22,7 +26,7 @@ export class UserDataService {
       params = params.append('password', data.password);
 
       res = this.http.post<any>(
-        baseUrl + '/user/register',
+        this.baseUrl + '/user/register',
         { body: '' },
         {
           params: params,

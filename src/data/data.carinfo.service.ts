@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../environments/environment';
 import { ApiBasePaths } from '../apis/apipaths';
 import { Observable } from 'rxjs/internal/Observable';
-import { ConfigService } from '../config/config.service';
+import { ConfigLoaderService } from '../config/configloader.service';
 
 export interface Make {
   id: string;
@@ -25,9 +24,13 @@ export interface BodyType {
   providedIn: 'root',
 })
 export class CarInfoDataService {
-  constructor(private http: HttpClient, private configService: ConfigService) {}
+  constructor(
+    private http: HttpClient,
+    private configService: ConfigLoaderService
+  ) {}
 
-  private baseUrl = this.configService.apiUrl + ApiBasePaths.CAR_INFO_SERVICE;
+  private baseUrl =
+    this.configService.getConfig()?.baseUrl + ApiBasePaths.CAR_INFO_SERVICE;
 
   getMakes(): Observable<any> {
     return this.http.get<any>(this.baseUrl + '/car/makes');
