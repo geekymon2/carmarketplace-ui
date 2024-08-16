@@ -1,0 +1,5 @@
+{
+  "baseUrl": "http://localhost:8008/api",
+  "logLevel": "debug",
+  "production": "false"
+}
