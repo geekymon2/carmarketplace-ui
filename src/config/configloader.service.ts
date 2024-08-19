@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 interface Config {
   baseUrl: string;
   logLevel: string;
-  production: string;
+  environment: string;
 }
 
 @Injectable({

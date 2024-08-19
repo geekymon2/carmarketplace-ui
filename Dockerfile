@@ -7,7 +7,7 @@ COPY . /usr/src/app
 RUN npm install -g @angular/cli
 RUN npm install
 RUN printf "IMAGE_VERSION=${IMAGE_VERSION}" > version.properties 
-RUN ng build --configuration=$ENVIRONMENT
+RUN ng build
 FROM nginx:latest
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./generate-config.sh /app/generate-config.sh
