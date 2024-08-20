@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" style="border-radius: 90px; border-color: #f0f0f0; background-color: #f0f0f0;">
+  <!-- Car body -->
+  <g id="car">
+    <!-- Main body -->
+    <path d="M100,200 Q50,160 100,120 L500,120 Q550,160 500,200 Z" fill="#2E8B57"/>
+
+    <!-- Roof -->
+    <path d="M200,120 Q300,50 400,120 Z" fill="#3CB371"/>
+
+    <!-- Windows -->
+    <path d="M210,120 Q300,60 390,120 L390,140 Q300,90 210,140 Z" fill="#87CEEB" opacity="0.8"/>
+
+    <!-- Front grill -->
+    <rect x="100" y="170" width="100" height="30" fill="#1C1C1C" rx="5" ry="5"/>
+
+    <!-- Headlights -->
+    <ellipse cx="100" cy="160" rx="15" ry="10" fill="#FFFFE0" opacity="0.9"/>
+    <ellipse cx="500" cy="160" rx="15" ry="10" fill="#FFFFE0" opacity="0.9"/>
+
+    <!-- Side mirrors -->
+    <rect x="90" y="140" width="20" height="10" fill="#2E8B57"/>
+    <rect x="490" y="140" width="20" height="10" fill="#2E8B57"/>
+
+    <!-- Wheels -->
+    <circle cx="180" cy="200" r="30" fill="#333"/>
+    <circle cx="420" cy="200" r="30" fill="#333"/>
+
+    <!-- Wheel Rims -->
+    <circle cx="180" cy="200" r="20" fill="#999"/>
+    <circle cx="420" cy="200" r="20" fill="#999"/>
+
+    <!-- Detailing -->
+    <line x1="250" y1="120" x2="250" y2="200" stroke="#228B22" stroke-width="2"/>
+    <line x1="350" y1="120" x2="350" y2="200" stroke="#228B22" stroke-width="2"/>
+
+    <!-- Door handles -->
+    <rect x="270" y="160" width="40" height="10" fill="#696969" rx="5" ry="5"/>
+    <rect x="370" y="160" width="40" height="10" fill="#696969" rx="5" ry="5"/>
+
+    <!-- Rear lights -->
+    <rect x="480" y="150" width="10" height="20" fill="#FF4500"/>
+  </g>
+
+  <!-- Shadow underneath the car -->
+  <ellipse cx="300" cy="210" rx="220" ry="30" fill="rgba(0, 0, 0, 0.2)"/>
+</svg>
