@@ -55,7 +55,8 @@ export class LoginComponent implements OnInit {
     this.res$ = this.userDataService.authenticateUser(this.form.value);
     this.res$.subscribe({
       next: () => {
-        this.router.navigate(['/auth']);
+        localStorage.setItem('mode', 'logged-in');
+        this.router.navigate(['/home']);
       },
       error: (err: any) => {
         this.errorMessage = err.details[0].message;
