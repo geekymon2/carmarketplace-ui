@@ -99,6 +99,7 @@
 }
 
 body {
+  margin-bottom: 60px;
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -11321,7 +11322,7 @@ html {
   font-size: 1.25rem;
 }
 .masthead .masthead-avatar {
-  width: 35rem;
+  width: 25rem;
   border-radius: 50%;
 }
 

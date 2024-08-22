@@ -1,3 +1,8 @@
 .status {
   font-size: 12px;
 }
+
+.footer {
+  height: 40px;
+  line-height: 40px;
+}
