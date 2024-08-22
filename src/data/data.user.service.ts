@@ -39,4 +39,26 @@ export class UserDataService {
     }
     return res;
   }
+
+  authenticateUser(data: any): Observable<any> {
+    let res: any = null;
+    try {
+      let params = new HttpParams();
+      params = params.append('email', data.email);
+      params = params.append('password', data.password);
+
+      res = this.http.post<any>(
+        this.baseUrl + '/user/authenticate',
+        { body: '' },
+        {
+          params: params,
+        }
+      );
+
+      res.subscribe((data: any) => console.log(data));
+    } catch (err) {
+      console.log(err);
+    }
+    return res;
+  }
 }
