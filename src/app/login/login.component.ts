@@ -55,10 +55,13 @@ export class LoginComponent implements OnInit {
     this.res$ = this.userDataService.authenticateUser(this.form.value);
     this.res$.subscribe({
       next: () => {
+        console.info('Logged in successfully');
         localStorage.setItem('mode', 'logged-in');
         this.router.navigate(['/home']);
+        console.info(localStorage.getItem('mode'));
       },
       error: (err: any) => {
+        console.error(err);
         this.errorMessage = err.details[0].message;
       },
     });
