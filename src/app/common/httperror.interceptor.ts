@@ -1,7 +1,8 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
-import { catchError, of } from 'rxjs';
+import { catchError, of, throwError } from 'rxjs';
 import { StatusMessageService } from './statusmessage.service';
 import { inject } from '@angular/core';
+import { ErrorModel } from './errormodel';
 
 export const httperrorInterceptor: HttpInterceptorFn = (req, next) => {
   const message = inject(StatusMessageService);
@@ -16,7 +17,15 @@ export const httperrorInterceptor: HttpInterceptorFn = (req, next) => {
           message.setStatusMessage('Unable to connect to server');
         }
       }
-      return of(err);
+
+      if (err.error.status == 500) {
+        message.setStatusMessage('A server error has occured');
+      }
+
+      return throwError(
+        () =>
+          new ErrorModel(err.error.status, err.error.details, err.error.message)
+      );
     })
   );
 };

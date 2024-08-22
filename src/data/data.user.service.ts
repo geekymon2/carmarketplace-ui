@@ -40,19 +40,13 @@ export class UserDataService {
     return res;
   }
 
-  authenticateUser(data: any): Observable<any> {
+  authenticateUser(data: any) {
     let res: any = null;
     try {
-
-      res = this.http.post<any>(
-        this.baseUrl + '/authenticate',
-        { body: data }
-      );
-
-      res.subscribe((data: any) => console.log(data));
+      res = this.http.post<any>(this.baseUrl + '/authenticate', data);
+      return res;
     } catch (err) {
-      console.log(err);
+      console.error('Exception while calling authenticateUser:', err);
     }
-    return res;
   }
 }

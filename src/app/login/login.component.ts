@@ -11,6 +11,7 @@ import {
 import { UserDataService } from '../../data/data.user.service';
 import { Observable } from 'rxjs';
 import { NgClass, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,10 +27,12 @@ export class LoginComponent implements OnInit {
   });
   submitted = false;
   res$!: Observable<any>;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,5 +53,13 @@ export class LoginComponent implements OnInit {
     }
 
     this.res$ = this.userDataService.authenticateUser(this.form.value);
+    this.res$.subscribe({
+      next: () => {
+        this.router.navigate(['/auth']);
+      },
+      error: (err: any) => {
+        this.errorMessage = err.details[0].message;
+      },
+    });
   }
 }
