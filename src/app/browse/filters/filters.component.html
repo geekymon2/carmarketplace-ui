@@ -1,0 +1,106 @@
+<!-- Filters Sidebar -->
+<div class="col-md-3">
+  <h4>Filters</h4>
+  <div class="mb-3">
+    <label for="searchInput" class="form-label">Make</label>
+    <input type="text" class="form-control" id="make" placeholder="MAKE" />
+  </div>
+  <div class="mb-3">
+    <label for="searchInput" class="form-label">Model</label>
+    <input type="text" class="form-control" id="model" placeholder="MAKE" />
+  </div>
+  <div class="mb-3">
+    <label for="categorySelect" class="form-label">Location</label>
+    <select class="form-select" id="categorySelect">
+      <option selected>Choose location...</option>
+      <option value="1">Category 1</option>
+      <option value="2">Category 2</option>
+      <option value="3">Category 3</option>
+    </select>
+  </div>
+
+  <!-- Price Range Filter -->
+  <div class="mb-3">
+    <label for="priceRange" class="form-label">Price Range</label>
+    <input
+      type="range"
+      class="form-range"
+      id="priceRange"
+      min="0"
+      max="100"
+      step="1"
+    />
+  </div>
+
+  <!-- Checkbox Filters -->
+  <div class="mb-3">
+    <label class="form-label">Body Type</label>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="option1" />
+      <label class="form-check-label" for="option1">SEDAN</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="option2" />
+      <label class="form-check-label" for="option2">SUV</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="option3" />
+      <label class="form-check-label" for="option3">SEDAN</label>
+    </div>
+  </div>
+
+  <!-- Rating Filter -->
+  <div class="mb-3">
+    <label class="form-label">Rating</label>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="rating"
+        id="rating1"
+        value="1"
+      />
+      <label class="form-check-label" for="rating1"> 1 Star </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="rating"
+        id="rating2"
+        value="2"
+      />
+      <label class="form-check-label" for="rating2"> 2 Stars </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="rating"
+        id="rating3"
+        value="3"
+      />
+      <label class="form-check-label" for="rating3"> 3 Stars </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="rating"
+        id="rating4"
+        value="4"
+      />
+      <label class="form-check-label" for="rating4"> 4 Stars </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="rating"
+        id="rating5"
+        value="5"
+      />
+      <label class="form-check-label" for="rating5"> 5 Stars </label>
+    </div>
+  </div>
+</div>

@@ -61,6 +61,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(['/results']);
+    this.router.navigate(['/browse']);
   }
 }

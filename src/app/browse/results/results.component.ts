@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './results.component.html',
   styleUrl: './results.component.css',
 })
-export class SearchResultsComponent {
+export class ResultsComponent {
   searchTerm: any;
   selectedCategory: any;
   filteredResults: any;
