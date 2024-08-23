@@ -49,8 +49,10 @@
               </div>
               }
             </div>
-            <div *ngIf="errorMessage" class="alert alert-danger">
-              {{ errorMessage }}
+            <div *ngIf="errorDetails" class="alert alert-danger">
+              <ul *ngFor="let item of errorDetails">
+                <li>{{ item }}</li>
+              </ul>
             </div>
             <div class="d-grid">
               <button type="submit" class="btn btn-primary">Login</button>

@@ -9,6 +9,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -25,7 +26,10 @@ export class SearchComponent implements OnInit {
   selectedModel = '';
   selectedBodyType = '';
 
-  constructor(private carInfoService: CarInfoDataService) {}
+  constructor(
+    private carInfoService: CarInfoDataService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.fetchCarMakes();
@@ -52,7 +56,14 @@ export class SearchComponent implements OnInit {
   }
 
   selectBodyType(selection: string) {
-    this.selectedBodyType = selection;    
+    this.selectedBodyType = selection;
     this.fetchCarModels(this.selectedMake, this.selectedBodyType);
+  }
+
+  onSubmit() {
+    console.log('Make: ' + this.selectedMake);
+    console.log('Model: ' + this.selectedModel);
+    console.log('Body Type: ' + this.selectedBodyType);
+    this.router.navigate(['/results']);
   }
 }

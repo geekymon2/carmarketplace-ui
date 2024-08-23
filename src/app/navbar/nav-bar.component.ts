@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,7 +13,10 @@ import { LoginService } from '../login/login.service';
 export class NavBarComponent implements OnInit {
   isLoggedIn = false;
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.isLoggedIn = !!localStorage.getItem('isLoggedIn');
@@ -23,5 +27,6 @@ export class NavBarComponent implements OnInit {
 
   onLogout() {
     this.loginService.logout();
+    this.router.navigate(['login']);
   }
 }

@@ -10,14 +10,14 @@ import {
 } from '@angular/forms';
 import { UserDataService } from '../../data/data.user.service';
 import { Observable } from 'rxjs';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass, NgIf, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgIf, NgClass],
+  imports: [ReactiveFormsModule, FormsModule, NgIf, NgClass, NgFor],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   });
   submitted = false;
   res$!: Observable<any>;
-  errorMessage: string | null = null;
+  errorDetails: string[] | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -62,8 +62,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       },
       error: (err: any) => {
-        console.error(err);
-        this.errorMessage = err.details[0].message;
+        this.errorDetails = err.details;
       },
     });
   }

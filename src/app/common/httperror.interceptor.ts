@@ -24,7 +24,7 @@ export const httperrorInterceptor: HttpInterceptorFn = (req, next) => {
 
       return throwError(
         () =>
-          new ErrorModel(err.error.status, err.error.details, err.error.message)
+          new ErrorModel(err.error.status, err.error.details, err.error.error)
       );
     })
   );
