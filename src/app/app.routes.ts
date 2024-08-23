@@ -3,7 +3,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
-import { SearchResultsComponent } from './searchresults/search-results/search-results.component';
+import { SearchResultsComponent } from './searchresults/search-results.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, //default route
