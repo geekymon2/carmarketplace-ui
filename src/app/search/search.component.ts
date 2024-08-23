@@ -61,9 +61,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Make: ' + this.selectedMake);
-    console.log('Model: ' + this.selectedModel);
-    console.log('Body Type: ' + this.selectedBodyType);
     this.router.navigate(['/results']);
   }
 }

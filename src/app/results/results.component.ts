@@ -5,17 +5,16 @@ import { Component } from '@angular/core';
   selector: 'app-search-results',
   standalone: true,
   imports: [NgFor],
-  templateUrl: './search-results.component.html',
-  styleUrl: './search-results.component.css'
+  templateUrl: './results.component.html',
+  styleUrl: './results.component.css',
 })
 export class SearchResultsComponent {
-searchTerm: any;
-selectedCategory: any;
-filteredResults: any;
-categories: any;
+  searchTerm: any;
+  selectedCategory: any;
+  filteredResults: any;
+  categories: any;
 
-  onCategoryChange(category: string) {
-  }
+  onCategoryChange(category: string) {}
 
   onSearchChange() {
     // This function is triggered when the search term changes.

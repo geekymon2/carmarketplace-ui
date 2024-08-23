@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit {
     this.res$ = this.userDataService.authenticateUser(this.form.value);
     this.res$.subscribe({
       next: () => {
-        console.info('Logged in successfully');
         this.loginService.login();
         this.router.navigate(['/home']);
       },
