@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,10 +10,18 @@ import { NgIf } from '@angular/common';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent implements OnInit {
-  mode: string | null = null;
+  isLoggedIn = false;
+
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
-    this.mode = localStorage.getItem('mode');
-    console.info(this.mode);
+    this.isLoggedIn = !!localStorage.getItem('isLoggedIn');
+    this.loginService.loginStatusChanged.subscribe((status: boolean) => {
+      this.isLoggedIn = status;
+    });
+  }
+
+  onLogout() {
+    this.loginService.logout();
   }
 }

@@ -12,6 +12,7 @@ import { UserDataService } from '../../data/data.user.service';
 import { Observable } from 'rxjs';
 import { NgClass, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userDataService: UserDataService,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -56,9 +58,8 @@ export class LoginComponent implements OnInit {
     this.res$.subscribe({
       next: () => {
         console.info('Logged in successfully');
-        localStorage.setItem('mode', 'logged-in');
+        this.loginService.login();
         this.router.navigate(['/home']);
-        console.info(localStorage.getItem('mode'));
       },
       error: (err: any) => {
         console.error(err);
