@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { BrowseComponent } from './browse/browse.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, //default route
@@ -11,6 +12,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'browse', component: BrowseComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
 ];
 
 @NgModule({
