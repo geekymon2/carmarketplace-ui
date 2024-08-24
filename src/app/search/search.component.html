@@ -11,6 +11,7 @@
           bindValue="name"
           [(ngModel)]="selectedMake"
           [ngModelOptions]="{ standalone: true }"
+          placeholder="All Makes"
         ></ng-select>
         <ng-select
           (change)="selectBodyType(selectedBodyType)"
@@ -21,6 +22,7 @@
           bindValue="name"
           [(ngModel)]="selectedBodyType"
           [ngModelOptions]="{ standalone: true }"
+          placeholder="All Body Types"
         ></ng-select>
 
         <ng-select
@@ -31,6 +33,7 @@
           bindValue="name"
           [(ngModel)]="selectedModel"
           [ngModelOptions]="{ standalone: true }"
+          placeholder="All Models"
         ></ng-select>
         <div class="col-auto">
           <button
