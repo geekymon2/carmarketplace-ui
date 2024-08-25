@@ -49,4 +49,20 @@ export class UserDataService {
       console.error('Exception while calling authenticateUser:', err);
     }
   }
+
+  validateEmail(email: string) {
+    let res: any = null;
+    try {
+      let params = new HttpParams();
+      params = params.append('email', email);
+      res = this.http.post<any>(
+        this.baseUrl + '/validateemail',
+        { body: '' },
+        { params: params }
+      );
+      return res;
+    } catch (err) {
+      console.error('Exception while validating email address:', err);
+    }
+  }
 }
