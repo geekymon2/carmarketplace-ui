@@ -50,9 +50,10 @@ export class ForgotpasswordComponent implements OnInit {
       return;
     }
 
-    this.res$ = this.userDataService.validateEmail(this.form.value);
+    this.res$ = this.userDataService.validateEmail(this.form.value.email);
     this.res$.subscribe({
       next: () => {
+        console.info('successful');
         this.notificationService.sendResetEmail();
       },
       error: (err: any) => {
