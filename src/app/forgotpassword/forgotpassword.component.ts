@@ -5,15 +5,18 @@ import {
   FormControl,
   FormGroup,
   Validators,
+  ReactiveFormsModule,
+  FormsModule,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UserDataService } from '../../data/data.user.service';
 import { NotificationService } from '../../data/notification.service';
+import { NgClass, NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-forgotpassword',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, FormsModule, NgClass, NgIf, NgFor],
   templateUrl: './forgotpassword.component.html',
   styleUrl: './forgotpassword.component.css',
 })
@@ -28,7 +31,7 @@ export class ForgotpasswordComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userDataService: UserDataService,
-    private notificationService: NotificationService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
