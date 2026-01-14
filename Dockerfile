@@ -8,7 +8,7 @@ RUN npm install -g @angular/cli
 RUN npm install
 RUN printf "IMAGE_VERSION=${IMAGE_VERSION}" > version.properties 
 RUN ng build
-FROM nginx:latest
+FROM nginx:1.29.4-trixie
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./generate-config.sh /app/generate-config.sh
 RUN chmod +x /app/generate-config.sh
